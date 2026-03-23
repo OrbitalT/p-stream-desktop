@@ -49,9 +49,9 @@ jobs:
       - name: Build Linux ${{ matrix.arch }}
         run: |
           if [ "${{ matrix.arch }}" = "x64" ]; then
-            pnpm run build:linux --x64
+            pnpm run build:linux --x64 -p never
           else
-            pnpm run build:linux --${{ matrix.arch }}
+            pnpm run build:linux --${{ matrix.arch }} -p never
           fi
 
       - name: Upload Linux artifacts
@@ -92,9 +92,9 @@ jobs:
         shell: bash
         run: |
           if [ "${{ matrix.arch }}" = "x64" ]; then
-            pnpm run build:win --x64
+            pnpm run build:win --x64 -p never
           else
-            pnpm run build:win --${{ matrix.arch }}
+            pnpm run build:win --${{ matrix.arch }} -p never
           fi
 
       - name: Upload Windows artifacts
@@ -136,9 +136,9 @@ jobs:
       - name: Build macOS ${{ matrix.arch }}
         run: |
           if [ "${{ matrix.arch }}" = "x64" ]; then
-            pnpm run build:mac --x64
+            pnpm run build:mac --x64 -p never
           else
-            pnpm run build:mac --${{ matrix.arch }}
+            pnpm run build:mac --${{ matrix.arch }} -p never
           fi
 
       - name: Upload macOS artifacts
